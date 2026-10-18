@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Learn more about Daniel, his teaching experience, IT studies, and personal interests.">
+
+    <title>Daniel | Personal Profile</title>
+
+    <style>
+        /* ===== 1. GENERAL SETTINGS ===== */
+        :root {
+            --primary: #38bdf8;
+            --dark: #0b1120;
+            --card: #151f32;
+            --text: #f1f5f9;
+            --muted: #b6c2d2;
+            --border: #29364b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* ===== 2. NAVIGATION BAR ===== */
+        header {
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== 3. INTRODUCTION SECTION ===== */
+        .hero {
+            min-height: 470px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            align-items: center;
+            gap: 50px;
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .tag {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.3rem);
+            line-height: 1.15;
+            margin: 15px 0;
+        }
+
+        h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 550px;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.88;
+        }
+
+        /* ===== 4. PROFILE PHOTO ===== */
+        .photo-box {
+            text-align: center;
+        }
+
+        .photo-frame {
+            display: inline-block;
+            padding: 9px;
+            border: 2px solid var(--primary);
+            border-radius: 24px;
+            background: var(--card);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-frame img {
+            display: block;
+            width: 100%;
+            max-width: 340px;
+            height: 380px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 17px;
+        }
+
+        .photo-caption {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        /* ===== 5. GENERAL SECTIONS ===== */
+        section {
+            padding: 65px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .about-card,
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .about-card p + p {
+            margin-top: 18px;
+        }
+
+        /* ===== 6. SKILLS SECTION ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        /* ===== 7. EXPERIENCE AND EDUCATION ===== */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* ===== 8. FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+        }
+
+        /* ===== 9. MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 750px) {
+            nav {
+                flex-direction: column;
+                justify-content: center;
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .photo-box {
+                grid-row: 1;
+            }
+
+            .photo-frame img {
+                max-width: 290px;
+                height: 320px;
+            }
+
+            .skills-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* ===== 10. REDUCED MOTION ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container" aria-label="Main navigation">
+            <a href="#home" class="logo">Daniel.</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- INTRODUCTION -->
+        <section class="hero container" id="home">
+
+            <div class="hero-content">
+                <div class="tag">Welcome to my profile</div>
+
+                <h1>Hello, I'm <span>Daniel</span></h1>
+
+                <p>
+                    A motivated individual with a background in teaching
+                    and a growing interest in Information Technology.
+                    I enjoy learning, solving problems, and developing
+                    skills that can make a positive difference.
+                </p>
+
+                <div class="buttons">
+                    <a href="#about" class="btn btn-primary">
+                        Learn More
+                    </a>
+
+                    <a href="#experience" class="btn">
+                        My Background
+                    </a>
+                </div>
+            </div>
+
+            <div class="photo-box">
+                <div class="photo-frame">
+                    <img
+                        src="myphoto.jpg"
+                        alt="Daniel standing at the Gambian Arch"
+                        width="340"
+                        height="380"
+                    >
+                </div>
+
+                <p class="photo-caption">
+                    My journey, my growth, my future.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ABOUT ME -->
+        <section id="about">
+            <div class="container">
+
+                <h2 class="section-title">About Me</h2>
+
+                <p class="section-intro">
+                    A little about who I am and what motivates me.
+                </p>
+
+                <div class="about-card">
+                    <p>
+                        Hello! My name is Daniel. I am a motivated and
+                        hardworking individual who values learning,
+                        personal development, and continuous improvement.
+                        My experience as a primary school teacher at
+                        Yunus in 2023 helped me develop communication,
+                        patience, teamwork, organizational, interpersonal,
+                        and problem-solving skills. Working with students
+                        taught me to understand different needs, build
+                        positive relationships, and communicate
+                        information clearly and effectively.
+                    </p>
+
+                    <p>
+                        I am also pursuing my interest in Information
+                        Technology through my CSU IT studies. I enjoy
+                        exploring programming, databases, and computer
+                        systems while strengthening my technical knowledge.
+                        My goal is to continue learning, improve my
+                        practical abilities, and apply my knowledge
+                        to solve problems and contribute positively
+                        to society.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="container">
+
+                <h2 class="section-title">My Skills & Interests</h2>
+
+                <p class="section-intro">
+                    Skills I have developed and areas I am interested
+                    in improving.
+                </p>
+
+                <div class="skills-grid">
+
+                    <article class="info-card">
+                        <h3>Communication</h3>
+                        <p>
+                            Sharing information clearly, listening
+                            carefully, and building positive relationships.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Problem-Solving</h3>
+                        <p>
+                            Approaching challenges patiently, thinking
+                            logically, and looking for practical solutions.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Information Technology</h3>
+                        <p>
+                            Developing knowledge of programming,
+                            databases, and computer systems through study
+                            and practice.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BACKGROUND -->
+        <section id="experience">
+            <div class="container">
+
+                <h2 class="section-title">
+                    My Background
+                </h2>
+
+                <p class="section-intro">
+                    Experiences and learning that contribute to my growth.
+                </p>
+
+                <div class="details-grid">
+
+                    <article class="info-card">
+                        <h3>Teaching Experience</h3>
+                        <p><strong>Primary School Teacher</strong></p>
+                        <p>Yunus · 2023</p>
+                        <p>
+                            Developed communication, patience,
+                            organization, interpersonal skills, and
+                            the ability to work with different learners.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>IT Studies</h3>
+                        <p><strong>CSU IT</strong></p>
+                        <p>
+                            Exploring programming, databases, computer
+                            systems, and other areas of Information
+                            Technology.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span id="year">2026</span> Daniel.
+                All rights reserved.
+            </p>
+
+            <p>
+                Keep learning. Keep growing. Keep moving forward.
+            </p>
+
+            <p>
+                <a href="https://www.w3schools.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Learn More About Web Development
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Automatically update the copyright year.
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
