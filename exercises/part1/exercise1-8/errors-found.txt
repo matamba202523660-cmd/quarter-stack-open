@@ -1,0 +1,27 @@
+Bug 1: The browser may interpret the page title incorrectly because the closing `</title>` tag is missing.
+
+Bug 2: The main heading may not display correctly because `<h1>` is used to open the heading but another `<h1>` is used instead of `</h1>` to close it.
+
+Bug 3: The About This Page heading is not closed because `</h2>` is missing.
+
+Bug 4: The paragraph contains mismatched formatting tags because `<strong>` is opened but `</em>` is used to close it.
+
+Bug 5: The My Favourite Things heading is not closed because `</h3>` is missing.
+
+Bug 6: The first list item, Reading, has no closing `</li>` tag.
+
+Bug 7: The third list item, Gaming, has no closing `</li>` tag.
+
+Bug 8: The Top 5 Books heading has mismatched heading tags because it opens with `<h2>` but closes with `</h3>`.
+
+Bug 9: The Book One list item has no closing `</li>` tag.
+
+Bug 10: The Book Three entry is incorrectly placed inside an `<ol>` element instead of being a list item inside the existing ordered list.
+
+Bug 11: The Book Five list item has no closing `</li>` tag.
+
+Bug 12: The paragraph beginning "Thanks for visiting!" has no closing `</p>` tag.
+
+Bug 13: The final paragraph has mismatched nesting because `<strong>` is opened inside the paragraph but closed after `</p>`.
+
+Bug 14: The document ends with `</body>..` instead of a proper closing `</body>` followed by `</html>`.
